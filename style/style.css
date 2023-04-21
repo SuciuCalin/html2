@@ -71,7 +71,7 @@ body.dark-mode {
 
 /* Sectiune Hero */
 .hero-section {
-    background-image: url("https:source.unsplash.com/1600x900/?bitcoin");
+    background-image: url("https://source.unsplash.com/1600x900/?bitcoin");
     height: calc(100vh - 60px);
     display: flex;
     justify-content: center;
