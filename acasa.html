@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Acasa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style/style.css">
+        <style>
+            .nav-menu li a[href^="acasa"] {
+                color: red;
+                letter-spacing: 2px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav>
+            <ul class="nav-menu">
+                <li>
+                    <a href="acasa.html">Acasa</a>
+                </li>
+                <li>
+                    <a href="catalog.html">Catalog</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+
+            <span id="dark-mode"></span>
+        </nav>
+
+        <!-- Sectiune Hero -->
+        <div class="hero-section">
+            <div class="overlay"></div>
+            <h1>Site</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quaerat, laudantium alias officiis quos voluptatibus labore, veniam fugit explicabo debitis beatae nesciunt ipsam accusamus maxime esse aliquid minima. Velit, aliquam!
+            </p>
+        </div>
+
+        <section class="page-content">
+            <div class="page-content-text">
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis ipsa, repellat voluptate praesentium adipisci necessitatibus. Alias quis obcaecati delectus quisquam, ab consectetur, a magnam corrupti voluptas recusandae sunt perferendis voluptates.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui placeat eveniet, asperiores odio obcaecati velit adipisci laboriosam nobis iusto, nulla quaerat reiciendis excepturi ab ipsam eligendi commodi laborum? Porro, obcaecati?
+                </p>
+            </div>
+            <img src="https:source.unsplash.com/1600x900/?panda" alt="Panda Image" class="page-content-img">
+        </section>
+
+        <!-- Sectiune Carduri -->
+        <section class="cards-container">
+            <h2>Proiecte</h2>
+            <ul class="cards-list"></ul>
+        </section>
+
+        <footer>
+            <p>
+                Copyright 2023
+            </p>
+        </footer>
+
+        <script src="./js/script.js"></script>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+            import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyBeSC3HNa_YAY0vBgeGu6InP4A8gMeLios",
+                authDomain: "html2-project.firebaseapp.com",
+                databaseURL: "https://html2-project-default-rtdb.firebaseio.com",
+                projectId: "html2-project",
+                storageBucket: "html2-project.appspot.com",
+                messagingSenderId: "963734454144",
+                appId: "1:963734454144:web:384a39ffa5283212e80b65"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            // Initializam baza de date
+            const database = getDatabase(app);
+            // Referinta catre baza de date
+            const dbRef = ref(database);
+            // Preluam lista de proiecte din baza de date
+            // 'proiecte' - este numele listei
+            get(child(dbRef, 'proiecte'))
+            // Dupa ce preluam informatiile (lista), extragem datele
+            .then(function(data) {
+                if (data.exists()) {
+                    // Daca exista date, returnam lista de proiecte
+                    const listaProiecte = data.val();
+                    console.log(listaProiecte);
+
+                    // Petru fiecare proiect din lista generam un card
+                    listaProiecte.forEach(function(proiect) {
+                        generateCard(proiect);
+                    })
+                } else {
+                    console.log("No data available :(");
+                }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+        </script>
+    </body>
+</html>

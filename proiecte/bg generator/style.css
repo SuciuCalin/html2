@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+h3 {
+    text-align: center;
+}
+
+button#randomBtn {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: white;
+    color: black;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+button#randomBtn:hover {
+    transform: translateY(2px);
+    /* transform: rotateZ(180deg); */
+}

@@ -1,0 +1,16 @@
+{
+    "proiecte": [
+        {
+            "nume": "Memory Game",
+            "descriere": "Un memory game",
+            "img": "./img/memory.png",
+            "link": "./proiecte/memory game/index.html"
+        },
+        {
+            "nume": "Digital Alarm",
+            "descriere": "O alarma in browser",
+            "img": "./img/alarm.png",
+            "link": "./proiecte/digital alarm clock/index.html"
+        }
+    ]
+}
