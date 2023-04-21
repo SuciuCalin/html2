@@ -34,7 +34,7 @@ body.dark-mode {
 
 .nav-menu li a {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #111111;
     transition: 0.3s;
 }
@@ -305,6 +305,9 @@ iframe {
 
 /* Display > 600px */
 @media only screen and (min-width: 600px) {
+    .nav-menu li a {
+        font-size: 1.5rem;
+    }
     .cards-list {
         grid-template-columns: repeat(2, 1fr);
     }
